@@ -1,23 +1,16 @@
 package com.fan.lakehouse.dw;
 
-import org.apache.flink.api.common.typeinfo.Types;
-import org.apache.flink.streaming.api.datastream.DataStream;
-import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-import org.apache.flink.table.api.DataTypes;
-import org.apache.flink.table.api.Schema;
-import org.apache.flink.table.api.Table;
-import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
-import org.apache.flink.types.Row;
-import org.apache.flink.types.RowKind;
+import org.apache.flink.api.java.ExecutionEnvironment;
+import org.apache.flink.table.api.TableEnvironment;
 
 public class ods2dwdDemo {
 
     public static void writeToDwd() {
         // create environments of both APIs
-        StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+        ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
         // for CONTINUOUS_UNBOUNDED source, set checkpoint interval
         //env.enableCheckpointing(60000);
-        StreamTableEnvironment tableEnv = StreamTableEnvironment.create(env);
+        TableEnvironment tableEnv = TableEnvironment.create(env.getConfiguration());
 
 
         // create paimon catalog
