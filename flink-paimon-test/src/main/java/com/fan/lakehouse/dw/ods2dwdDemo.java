@@ -16,7 +16,7 @@ public class ods2dwdDemo {
         // create environments of both APIs
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         // for CONTINUOUS_UNBOUNDED source, set checkpoint interval
-        env.enableCheckpointing(60000);
+        //env.enableCheckpointing(60000);
         StreamTableEnvironment tableEnv = StreamTableEnvironment.create(env);
 
 
