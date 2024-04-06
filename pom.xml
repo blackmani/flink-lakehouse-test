@@ -47,13 +47,21 @@
             <version>${flink-version}</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-table-planner_${scala-version}</artifactId>
             <version>${flink-version}</version>
 
             <scope>provided</scope>
+        </dependency>-->
+        <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-table-planner-loader -->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-table-planner-loader</artifactId>
+            <version>${flink-version}</version>
+            <scope>provided</scope>
         </dependency>
+
 
         <dependency>
             <groupId>org.apache.flink</groupId>
