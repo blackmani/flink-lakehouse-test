@@ -1,16 +1,18 @@
 package com.fan.lakehouse.dw;
 
 import org.apache.flink.api.java.ExecutionEnvironment;
+import org.apache.flink.table.api.EnvironmentSettings;
 import org.apache.flink.table.api.TableEnvironment;
 
 public class ods2dwdDemo {
 
     public static void writeToDwd() {
         // create environments of both APIs
-        ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
-        // for CONTINUOUS_UNBOUNDED source, set checkpoint interval
-        //env.enableCheckpointing(60000);
-        TableEnvironment tableEnv = TableEnvironment.create(env.getConfiguration());
+        EnvironmentSettings settings = EnvironmentSettings
+                .newInstance()
+                .inBatchMode()
+                .build();
+        TableEnvironment tableEnv = TableEnvironment.create(settings);
 
 
         // create paimon catalog
